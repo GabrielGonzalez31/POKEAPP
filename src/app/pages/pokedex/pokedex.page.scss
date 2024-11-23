@@ -1,0 +1,10 @@
+:host {
+  ion-content {
+    --background: #852222; /* Fondo rojo */
+  }
+
+  ion-header, ion-toolbar {
+    --background: #353434; /* Fondo gris */
+    --color: #ffffff;      /* Letras blancas */
+  }
+}

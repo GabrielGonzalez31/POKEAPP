@@ -8,9 +8,17 @@
     </ion-header>
     <ion-content class="ion-padding">
       <ion-list>
-        <ion-item routerLink="/home">Inicio</ion-item>
-        <ion-item routerLink="/about">Acerca de</ion-item>
-        <ion-item routerLink="/settings">Configuración</ion-item>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item routerLink="/pokedex">Pokedex</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+         <ion-item routerLink="/about">Acerca de</ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="true">
+          <ion-item routerLink="/settings">Perfil</ion-item>
+        </ion-menu-toggle>
       </ion-list>
     </ion-content>
   </ion-menu>
