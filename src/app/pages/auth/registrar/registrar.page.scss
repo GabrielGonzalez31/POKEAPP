@@ -1,0 +1,47 @@
+.contenedor{
+  --ion-background-color: rgba(94, 23, 23, 0.849);
+}
+
+.conte_form{
+  --ion-background-color: white;
+}
+
+.texto_olvidastes_contra{
+  cursor: pointer;
+  color: white;
+  text-decoration: underline;
+}
+
+.submit {
+    background-color: grey; /* Color de fondo deseado */
+    border-radius: 15px;
+    box-shadow: none; /* Sin sombra */
+    font-weight: bolder;
+    color: white; /* Color del texto */
+
+    /* Sobrescribir el estilo predeterminado del botón en modo iOS */
+    --background-focused: grey;
+    --background-hover: grey;
+    --background-activated: grey;
+    --background: grey;
+  }
+
+.btn-volver {
+    background-color: grey; /* Color de fondo deseado */
+    border-radius: 15px; /* Sin bordes */
+    box-shadow: none; /* Sin sombra */
+    font-weight: bolder;
+    color: white; /* Color del texto */
+
+    /* Sobrescribir el estilo predeterminado del botón en modo iOS */
+    --background-focused: grey;
+    --background-hover: grey;
+    --background-activated: grey;
+    --background: grey;
+  }
+
+.validators{
+  color: white;
+}
+
+

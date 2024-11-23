@@ -1,0 +1,7 @@
+<ion-item class="custom-input" lines="none">
+  <ion-icon color="danger" *ngIf="icon" slot="start" [name]="icon"></ion-icon>
+  <ion-input [type]="type" [autocomplete]="autocomplete" [label]="label" labelPlacement="floating" [formControl]="control"></ion-input> <!-- estas varibles son las que estan en custom.ts y asi poder conectar el formulario con los inputs -->
+  <ion-button *ngIf="isPassword" (click)="ocultarOMostrarClave()" slot="end" fill="clear" shape="round">
+    <ion-icon slot="icon-only" color="danger" [name]="hide ? 'eye-outline' : 'eye-off-outline'"></ion-icon>
+  </ion-button>
+</ion-item>

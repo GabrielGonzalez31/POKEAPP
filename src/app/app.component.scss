@@ -1,0 +1,39 @@
+ion-menu {
+  --background: #2f2f2f; /* Fondo gris del menú */
+}
+
+ion-menu ion-header,
+ion-menu ion-toolbar {
+  --background: #313030; /* Fondo gris del header del menú */
+  --color: #292828;      /* Texto blanco */
+}
+
+ion-menu ion-content {
+  --background: #232121; /* Fondo gris del contenido del menú */
+}
+
+ion-menu ion-title {
+  color: #ffffff; /* Título blanco */
+}
+
+ion-menu ion-item {
+  --background: transparent; /* Elimina fondo blanco por defecto */
+  color: #ffffff;            /* Texto en blanco */
+  --border-color: transparent;
+
+}
+
+ion-menu ion-item::part(native) {
+  background-color: #2b2b2b; /* Fondo gris de los ítems */
+
+}
+ion-menu ion-item-divider {
+  --background: transparent; /* Por si hay divisores, fondo transparente */
+  --color: #ffffff;          /* Texto blanco */
+}
+
+ion-menu ion-item:hover {
+  --background: #363636; /* Fondo más oscuro al pasar el cursor */
+}
+
+

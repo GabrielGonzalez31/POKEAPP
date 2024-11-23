@@ -1,0 +1,33 @@
+:host {
+  ion-content {
+    --background: #852222; /* Fondo rojo */
+  }
+
+  ion-header, ion-toolbar {
+    --background: #353434; /* Fondo gris */
+    --color: #ffffff;      /* Letras blancas */
+  }
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos estén en columna */
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Asegura que ocupa toda la pantalla */
+  text-align: center; /* Centra el texto */
+}
+
+.logo {
+  max-width: 300px; /* Ajusta el tamaño según prefieras */
+  max-height: 300px;
+  margin-bottom: 20px; /* Espaciado entre la imagen y el texto */
+}
+
+.app-title {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 24px; /* Tamaño de fuente */
+  font-weight: bold;
+  color: white; /* Color blanco para contrastar con el fondo rojo */
+  margin: 0; /* Elimina margen adicional */
+} /* Color blanco para contrastar con el fondo rojo */
