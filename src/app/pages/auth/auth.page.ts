@@ -1,3 +1,4 @@
+import { AuthService } from './../../servicios/auth.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/bd.models';
@@ -18,6 +19,7 @@ export class AuthPage implements OnInit {
 
   firebaseAuth = inject(FirebaseService)
   utils = inject(UtilsService);
+  AuthService = inject(AuthService);
   ngOnInit() {
   }
 
@@ -27,6 +29,7 @@ export class AuthPage implements OnInit {
       const isLoading = await this.utils.cargando();
       await isLoading.present();
 
+      this.AuthService.iniciarSesion();
       this.firebaseAuth.iniciarSesion(this.form.value as Usuario).then(res => {
 
         this.getUserInfo(res.user.uid);

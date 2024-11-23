@@ -9,6 +9,11 @@
   }
 }
 
+.btn-cerrar_sesion{
+  --background: #852222;
+  --color: #ffffff;
+}
+
 .menu-container {
   display: flex;
   flex-direction: column; /* Asegura que los elementos estén en columna */
