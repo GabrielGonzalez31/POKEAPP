@@ -1,0 +1,8 @@
+.img{
+
+  width: 300px; /* Ancho en píxeles o porcentaje */
+  height: 300px; /* Altura en píxeles o porcentaje */
+  display: block; /* Necesario para que `margin: auto` funcione */
+  margin: 0 auto; /* Centra horizontalmente */
+  transition: all 0.3s ease; /* Transición suave */
+}

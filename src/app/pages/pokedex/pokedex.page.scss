@@ -8,3 +8,29 @@
     --color: #ffffff;      /* Letras blancas */
   }
 }
+
+.card {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Usar !important si es necesario */
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.card-title {
+  font-family: 'Poppins', sans-serif !important; /* Usar !important si es necesario */
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.card-body {
+  font-family: 'Poppins', sans-serif !important; /* Usar !important si es necesario */
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}

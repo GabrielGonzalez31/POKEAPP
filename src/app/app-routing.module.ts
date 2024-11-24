@@ -22,6 +22,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/pokedex/pokedex.module').then( m => m.PokedexPageModule),
     canMatch: [authGuard]
   },
+  {
+    path: 'pokemon-detail',
+    loadChildren: () => import('./pokemon-detail/pokemon-detail.module').then(m => m.PokemonDetailModule)
+  }
 ];
 
 @NgModule({
