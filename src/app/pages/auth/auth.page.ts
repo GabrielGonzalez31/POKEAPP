@@ -61,6 +61,7 @@ export class AuthPage implements OnInit {
       this.firebaseAuth.getDocument(path).then((user: Usuario) => { //la contraseña se obtiene de esta funcion
 
         this.utils.guardadoLocal('user', user);
+        this.utils.setTipoUsuario(user.tipo); // <- Actualiza el tipo de usuario aquí
         this.utils.routerLink('/home');
         this.form.reset();
 

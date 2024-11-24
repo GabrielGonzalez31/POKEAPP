@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController, ToastOptions } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class UtilsService {
   isLoading = inject(LoadingController);
   toastControl = inject(ToastController);
   router = inject(Router);
+
+  private tipoUsuarioSubject = new BehaviorSubject<string>('entrenador'); // Valor inicial por defecto
 
   cargando (){
     return this.isLoading.create({spinner: 'crescent'});
@@ -34,4 +37,14 @@ export class UtilsService {
   obtenerDeLocaStorage(key:string){
     return JSON.parse(localStorage.getItem(key))
   }
+
+  setTipoUsuario(tipo: string) {
+    console.log('Valor recibido en setTipoUsuario:', tipo); // Depurar entrada
+    this.tipoUsuarioSubject.next(tipo);
+  }
+
+  getTipoUsuario() {
+    return this.tipoUsuarioSubject.asObservable();  // Retorna un Observable para suscribirse
+  }
+
 }

@@ -16,6 +16,7 @@ export class RegistrarPage implements OnInit {
     nombre: new FormControl('',[Validators.required, Validators.minLength(4)]),
     email: new FormControl('',[Validators.required, Validators.email]),
     clave: new FormControl('',[Validators.required]),
+    tipo: new FormControl('',[Validators.required]),
   })
 
   firebaseAuth = inject(FirebaseService);
@@ -67,6 +68,8 @@ export class RegistrarPage implements OnInit {
 
         this.utils.guardadoLocal('user', this.form.value);
         this.utils.routerLink('/home');
+        console.log('Tipo de usuario:', this.form.value.tipo);
+        this.utils.setTipoUsuario(this.form.value.tipo);
         this.form.reset();
 
       }).catch(error => {

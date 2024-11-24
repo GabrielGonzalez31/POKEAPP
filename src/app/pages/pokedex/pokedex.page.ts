@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';  // Importa ModalController
 import { PokemonDetailComponent } from '../../pokemon-detail/pokemon-detail.component'; // Ajusta la ruta
+import { UtilsService } from 'src/app/servicios/utils.service';
 
 @Component({
   selector: 'app-pokedex',
@@ -9,15 +10,30 @@ import { PokemonDetailComponent } from '../../pokemon-detail/pokemon-detail.comp
   styleUrls: ['./pokedex.page.scss'],
 })
 export class PokedexPage implements OnInit {
-  constructor(private navCtrl: NavController, private modalController: ModalController) {}
+  constructor(
+    private navCtrl: NavController,
+    private modalController: ModalController,
+    private utilsService: UtilsService // Agregar aquí UtilsService
+  ) {}
 
-  ngOnInit() {
+
+  isEntrenador: boolean;
+  isEspectador: boolean;
+
+  async ngOnInit() {
     this.getPokemon();
+     // Obtener el tipo de usuario al suscribirse al BehaviorSubject
+     this.utilsService.getTipoUsuario().subscribe((tipo) => {
+      this.isEntrenador = tipo === 'entrenador';
+      this.isEspectador = tipo === 'espectador';
+      console.log('Es entrenador:', this.isEntrenador);
+      console.log('Es espectador:', this.isEspectador);
+    });
   }
 
   async getPokemon() {
     try {
-      const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
+      const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1100');
       const data = await response.json();
 
       // Cargar detalles de todos los Pokémon

@@ -1,3 +1,4 @@
+
 <app-header backbuttom="auth" title="Registro"></app-header>
 <ion-content class="contenedor">
 
@@ -14,6 +15,17 @@
         <div *ngIf="form.controls.nombre.errors?.['minlength']">El nombre de tener al menos 4 caracteres</div>
       </div>
 
+      <ion-item class="custom-input" lines="none">
+        <ion-icon color="danger" slot="start" name="person-circle-outline"></ion-icon>
+        <ion-select [formControl]="form.controls.tipo" label="Tipo de usuario">
+          <ion-select-option value="entrenador">Entrenador</ion-select-option>
+          <ion-select-option value="espectador">Espectador</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="validators" *ngIf="form.controls.tipo.errors && form.controls.tipo.touched">
+        <div *ngIf="form.controls.tipo.errors?.['required']">El tipo de usuario es requerido</div>
+      </div>
 
       <app-custom-input autocomplete="email" icon="mail-outline" [control]="form.controls.email" type="email"
         label="Correo"></app-custom-input>

@@ -13,22 +13,40 @@
 </ion-header>
 
 <ion-content *ngIf="pokemonData">
-  <ion-card>
-    <img class="img" [src]="pokemonData.image" alt="Imagen de {{ pokemonData.name }}" />
-    <ion-card-header>
-      <ion-card-title>{{ pokemonData.name | titlecase }}</ion-card-title>
-      <ion-card-subtitle>ID: {{ pokemonData.id }}</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <p><strong>Tipo:</strong> {{ pokemonData.types | titlecase }}</p>
-      <p><strong>Habilidades:</strong>
-        <span *ngFor="let ability of pokemonData.abilities; let last = last">
-          {{ ability.ability.name | titlecase }}
-          <span *ngIf="!last">, </span>
-        </span>
-      </p>
-      <p><strong>Vida:</strong> {{ pokemonData.hp }}</p>
+  <div class="container mt-3" *ngIf="isEntrenador">
+    <ion-card>
+      <img class="img" [src]="pokemonData.image" alt="Imagen de {{ pokemonData.name }}" />
+      <ion-card-header>
+        <ion-card-title>{{ pokemonData.name | titlecase }}</ion-card-title>
+        <ion-card-subtitle>ID: {{ pokemonData.id }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Tipo:</strong> {{ pokemonData.types | titlecase }}</p>
+        <p><strong>Habilidades:</strong>
+          <span *ngFor="let ability of pokemonData.abilities; let last = last">
+            {{ ability.ability.name | titlecase }}
+            <span *ngIf="!last">, </span>
+          </span>
+        </p>
+        <p><strong>Vida:</strong> {{ pokemonData.hp }}</p>
 
-    </ion-card-content>
-  </ion-card>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="!isEntrenador">
+    <ion-card>
+      <img class="img" [src]="pokemonData.image" alt="Imagen de {{ pokemonData.name }}" />
+      <ion-card-header>
+        <ion-card-title>{{ pokemonData.name | titlecase }}</ion-card-title>
+        <ion-card-subtitle>ID: {{ pokemonData.id }}</ion-card-subtitle>
+      </ion-card-header>
+
+    </ion-card>
+    <p class="text-center">Más informacion solo disponible para Entrenadores!</p>
+  </div>
+
+
+
+
 </ion-content>
