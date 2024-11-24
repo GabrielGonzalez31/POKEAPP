@@ -105,6 +105,7 @@ export class PokedexPage implements OnInit {
     cardTitle.className = 'card-title';
     cardTitle.innerHTML = pokemon.name;
     cardTitle.style.fontFamily = 'Impact, Haettenschweiler, sans-serif';
+    cardTitle.style.color = '#ffffff';
 
     cardBody.className = 'card-body';
     cardBody.appendChild(cardTitle);
@@ -123,6 +124,9 @@ export class PokedexPage implements OnInit {
     image.alt = pokemon.name;
 
     card.className = 'card';
+
+    // Cambiar el color de fondo de la card a gris con !important
+    card.style.setProperty('background-color', '#2d2b2b', 'important');
 
     card.style.width = '10rem';
     card.appendChild(image);

@@ -11,3 +11,18 @@ h1{
 .titulo{
   color: white;
 }
+
+.menu-container {
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos estén en columna */
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Asegura que ocupa toda la pantalla */
+  text-align: center; /* Centra el texto */
+}
+
+.logo {
+  max-width: 150px; /* Ajusta el tamaño según prefieras */
+  max-height: 150px;
+  margin-bottom: 20px; /* Espaciado entre la imagen y el texto */
+}

@@ -24,7 +24,7 @@ ion-menu ion-item {
 }
 
 ion-menu ion-item::part(native) {
-  background-color: #2b2b2b; /* Fondo gris de los ítems */
+  background-color: #232121; /* Fondo gris de los ítems */
 
 }
 ion-menu ion-item-divider {
@@ -36,4 +36,7 @@ ion-menu ion-item:hover {
   --background: #363636; /* Fondo más oscuro al pasar el cursor */
 }
 
-
+ion-list {
+  margin: 0;
+  padding: 0;
+}

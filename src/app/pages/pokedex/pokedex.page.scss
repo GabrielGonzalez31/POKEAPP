@@ -11,7 +11,7 @@
 
 .card {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* Usar !important si es necesario */
-  background-color: #ffffff;
+
   border-radius: 8px;
   margin: 10px;
   padding: 10px;
@@ -21,6 +21,7 @@
   font-family: 'Poppins', sans-serif !important; /* Usar !important si es necesario */
   font-weight: 600;
   font-size: 1.2rem;
+  color: white !important; /* Establece el color del título a blanco */
 }
 
 .card-body {

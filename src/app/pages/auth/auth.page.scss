@@ -1,5 +1,5 @@
 .contenedor{
-  --ion-background-color: rgba(94, 23, 23, 0.849);
+  --ion-background-color: rgba(127, 16, 16, 0.849);
 }
 
 .conte_form{
@@ -13,31 +13,31 @@
 }
 
 .submit {
-    background-color: grey; /* Color de fondo deseado */
+    background-color: rgb(48, 46, 46); /* Color de fondo deseado */
     border-radius: 15px;
     box-shadow: none; /* Sin sombra */
     font-weight: bolder;
     color: white; /* Color del texto */
 
     /* Sobrescribir el estilo predeterminado del botón en modo iOS */
-    --background-focused: grey;
-    --background-hover: grey;
-    --background-activated: grey;
-    --background: grey;
+    --background-focused: rgb(48, 46, 46);
+    --background-hover: rgb(48, 46, 46);
+    --background-activated: rgb(48, 46, 46);
+    --background: rgb(48, 46, 46);
   }
 
 .registrarse {
-    background-color: grey; /* Color de fondo deseado */
+    background-color: rgb(48, 46, 46); /* Color de fondo deseado */
     border-radius: 15px; /* Sin bordes */
     box-shadow: none; /* Sin sombra */
     font-weight: bolder;
     color: white; /* Color del texto */
 
     /* Sobrescribir el estilo predeterminado del botón en modo iOS */
-    --background-focused: grey;
-    --background-hover: grey;
-    --background-activated: grey;
-    --background: grey;
+    --background-focused: rgb(48, 46, 46);
+    --background-hover: rgb(48, 46, 46);
+    --background-activated: rgb(48, 46, 46);
+    --background: rgb(48, 46, 46);
   }
 
 .validators{
