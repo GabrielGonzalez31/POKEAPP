@@ -20,8 +20,10 @@ export class AuthPage implements OnInit {
   firebaseAuth = inject(FirebaseService)
   utils = inject(UtilsService);
   AuthService = inject(AuthService);
+
   ngOnInit() {
   }
+
 
   async submit(){
     if ( this.form.valid) {
@@ -33,6 +35,7 @@ export class AuthPage implements OnInit {
       this.firebaseAuth.iniciarSesion(this.form.value as Usuario).then(res => {
 
         this.getUserInfo(res.user.uid);
+        //this.utils.guardadoLocal('user', res.user);  // Guarda el usuario en localStorage
 
       }).catch(error => {
         console.log(error);
@@ -89,5 +92,6 @@ export class AuthPage implements OnInit {
       })
     }
   }
+
 
 }

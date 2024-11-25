@@ -1,0 +1,20 @@
+<app-header backbuttom="home" title="Perfil"></app-header>
+
+<ion-content>
+  <ion-card>
+    <img class="logo" src="https://cdn.pixabay.com/photo/2018/05/21/13/09/pokemon-3418266_1280.png" alt="Logo" />
+    <ion-card-header>
+      <ion-card-title>Perfil</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input [value]="user?.nombre" disabled></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input [value]="user?.email" disabled></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

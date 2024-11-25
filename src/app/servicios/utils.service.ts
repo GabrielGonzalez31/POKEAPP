@@ -38,6 +38,7 @@ export class UtilsService {
     return JSON.parse(localStorage.getItem(key))
   }
 
+
   setTipoUsuario(tipo: string) {
     console.log('Valor recibido en setTipoUsuario:', tipo); // Depurar entrada
     this.tipoUsuarioSubject.next(tipo);

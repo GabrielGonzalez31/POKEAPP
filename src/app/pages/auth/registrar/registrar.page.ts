@@ -33,7 +33,8 @@ export class RegistrarPage implements OnInit {
       this.firebaseAuth.registrar(this.form.value as Usuario).then(async res => {
 
         await this.firebaseAuth.actualizarUsuario(this.form.value.nombre);
-
+        // registrar.page.ts
+        //this.utils.guardadoLocal('user', this.form.value);  // Guarda el usuario en localStorage
         let uid = res.user.uid;
         this.form.controls.uid.setValue(uid);
 

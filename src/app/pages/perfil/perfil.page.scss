@@ -1,0 +1,55 @@
+ion-content {
+  --background: rgba(127, 16, 16, 0.849);
+  padding: 16px;
+}
+
+.logo {
+  display: block;               /* Asegura que la imagen sea un bloque */
+  margin: 0 auto 16px auto;      /* Centra la imagen horizontalmente y agrega margen abajo */
+  max-width: 150px;              /* Limita el tamaño máximo de la imagen */
+  height: auto;                  /* Mantiene la proporción de la imagen */
+  object-fit: contain;           /* Asegura que la imagen se ajuste sin distorsionarse */
+}
+
+ion-card {
+  background-color: white; /* Fondo blanco para la tarjeta */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 16px;
+  margin-top: 100px;
+}
+
+ion-card-header {
+  margin-bottom: 16px;
+}
+
+ion-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #333; /* Color de texto para el título */
+}
+
+ion-card-content {
+  padding: 0; /* Elimina el padding extra */
+}
+
+ion-item {
+  margin-bottom: 16px;
+}
+
+ion-label {
+  font-size: 14px;
+  color: #555; /* Color gris para las etiquetas */
+}
+
+ion-input {
+  background-color: #f9f9f9; /* Fondo gris claro para los inputs */
+  border-radius: 8px; /* Bordes redondeados en los inputs */
+  font-size: 16px; /* Tamaño de la fuente en los inputs */
+  padding: 8px;
+}
+
+ion-input:disabled {
+  background-color: #e0e0e0; /* Fondo gris cuando el input está deshabilitado */
+}
