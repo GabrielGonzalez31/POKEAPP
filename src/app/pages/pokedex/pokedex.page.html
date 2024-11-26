@@ -5,14 +5,23 @@
     </ion-buttons>
     <ion-title>Pokedex</ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Buscar Pokémon" (ionInput)="onSearch($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
 
-  <div class="container mt-3">
-    <div id="wraper" class="row g-3"></div>
+  <ion-content>
+  <!-- Spinner mientras carga -->
+  <div *ngIf="isLoading" class="spinner-container">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando Pokémon...</p>
   </div>
 
-
+  <!-- Contenedor de las tarjetas -->
+  <div class="container mt-3">
+    <div id="wraper" class="row g-3" *ngIf="!isLoading"></div>
+  </div>
 </ion-content>

@@ -17,6 +17,10 @@ export class PokedexPage implements OnInit {
   ) {}
 
 
+  pokemonList: { name: string; image: string; id: number }[] = [];
+  filteredPokemonList: { name: string; image: string; id: number }[] = [];
+  isLoading: boolean = true; // Controla el estado de carga
+
   isEntrenador: boolean;
   isEspectador: boolean;
 
@@ -57,7 +61,6 @@ export class PokedexPage implements OnInit {
       const response = await fetch(pokemon.url);
       const data = await response.json();
 
-
       const typeTranslations: { [key: string]: string } = {
         normal: 'Normal',
         fire: 'Fuego',
@@ -76,41 +79,43 @@ export class PokedexPage implements OnInit {
         dragon: 'Dragón',
         dark: 'Siniestro',
         steel: 'Acero',
-        fairy: 'Hada'
+        fairy: 'Hada',
       };
-
 
       // Procesar tipos
       const typeSlot1 = typeTranslations[data.types.find((typeInfo: any) => typeInfo.slot === 1)?.type.name || 'unknown'];
-      ;
 
       // Procesar habilidades
       const abilities = data.abilities.map((abilityInfo: any) => abilityInfo.ability.name).join(', ');
 
       // Obtener vida (HP)
-      const hp = data.stats.find((stat: any) => stat.stat.name === "hp")?.base_stat;
+      const hp = data.stats.find((stat: any) => stat.stat.name === 'hp')?.base_stat;
 
-
-
-
-
-      // Retornar el objeto con los detalles
-      return this.buildPokemonCard({
+      // Crear el objeto con todos los detalles necesarios
+      const pokemonData = {
         name: data.name,
         image: data.sprites.front_default,
         id: data.id,
-        types: typeSlot1, // Agregar tipos
-        abilities: data.abilities, // Agregar habilidades
-        hp
+        types: typeSlot1,
+        abilities: data.abilities,
+        hp,
+      };
 
-      });
+      // Agregar al array principal
+      this.pokemonList.push(pokemonData);
+      this.filteredPokemonList = [...this.pokemonList]; // Inicializar el filtro
+
+      return this.buildPokemonCard(pokemonData); // Crear la tarjeta
     } catch (err) {
       console.error(`Error al obtener detalles de ${pokemon.name}:`, err);
       return null;
+    } finally {
+      this.isLoading = false; // Finaliza la carga
     }
+
   }
 
-  buildPokemonCard(pokemon: { name: string; image: string; id: number, types: string, abilities: string, hp: number }): HTMLElement {
+  buildPokemonCard(pokemon: { name: string; image: string; id: number;  }): HTMLElement {
     const col = document.createElement('div');
     const card = document.createElement('div');
     const cardBody = document.createElement('div');
@@ -126,7 +131,6 @@ export class PokedexPage implements OnInit {
     cardBody.className = 'card-body';
     cardBody.appendChild(cardTitle);
 
-    // Añadir el botón de inspeccionar
     btn.className = 'btn btn-primary';
     btn.innerHTML = 'Inspeccionar';
     btn.addEventListener('click', () => {
@@ -140,10 +144,7 @@ export class PokedexPage implements OnInit {
     image.alt = pokemon.name;
 
     card.className = 'card';
-
-    // Cambiar el color de fondo de la card a gris con !important
     card.style.setProperty('background-color', '#2d2b2b', 'important');
-
     card.style.width = '10rem';
     card.appendChild(image);
     card.appendChild(cardBody);
@@ -154,12 +155,38 @@ export class PokedexPage implements OnInit {
     return col;
   }
 
-  showPokemonDetail(pokemon: { name: string; image: string; id: number, types: string, abilities: string, hp: number}) {
-    this.modalController.create({
-      component: PokemonDetailComponent,
-      componentProps: {
-        pokemonData: pokemon,  // Pasa los datos del Pokémon aquí
-      },
-    }).then((modalElement) => modalElement.present());
+  showPokemonDetail(pokemon: { name: string; image: string; id: number;  }) {
+    this.modalController
+      .create({
+        component: PokemonDetailComponent,
+        componentProps: {
+          pokemonData: pokemon, // Pasa los datos del Pokémon aquí
+        },
+      })
+      .then((modalElement) => modalElement.present());
+  }
+
+  filterPokemon(searchText: string) {
+    const wrapper = document.getElementById('wraper');
+    if (!wrapper) return;
+
+    // Limpiar el contenedor
+    wrapper.innerHTML = '';
+
+    // Filtrar los Pokémon por nombre
+    this.filteredPokemonList = this.pokemonList.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+
+    // Reconstruir las tarjetas filtradas
+    this.filteredPokemonList.forEach((pokemon) => {
+      const card = this.buildPokemonCard(pokemon);
+      if (card) wrapper.appendChild(card);
+    });
+  }
+
+  onSearch(event: any) {
+    const searchText = event.target.value || '';
+    this.filterPokemon(searchText);
   }
 }
